@@ -216,3 +216,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Angular / Node.js
+node_modules/
+Front/node_modules/
+Front/dist/
+Front/.angular/
+
+# TypeScript compiled output
+*.js.map
+*.d.ts.map
+
+# npm / yarn / pnpm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment files (Angular)
+Front/src/environments/environment.local.ts
