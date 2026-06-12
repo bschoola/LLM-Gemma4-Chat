@@ -23,8 +23,8 @@ A full-stack chatbot application powered by Google's **Gemma 3 4B** model runnin
 | Frontend | Angular 17 (standalone components), TypeScript |
 | Backend | Python 3.11+, FastAPI |
 | AI Runtime | Ollama |
-| AI Model | Gemma 3 4B (`gemma3:4b`) |
-| Streaming | Server-Sent Events (SSE) |
+| AI Model | Gemma 4 (`gemma4:latest`) |
+| Streaming | Server-Sent Events (SSE) |  
 
 ---
 
@@ -43,14 +43,7 @@ Make sure the following are installed before proceeding:
 
 ## Installation
 
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/gemma-chatbot.git
-cd gemma-chatbot
-```
-
-### 2. Pull the Gemma model
+### 1. Pull the Gemma model
 
 Start Ollama and pull the model (≈3 GB download):
 
@@ -62,7 +55,7 @@ ollama pull gemma3:4b
 
 ---
 
-### 3. Backend setup
+### 2. Backend setup
 
 ```bash
 cd Back
@@ -85,7 +78,7 @@ cp .env.example .env
 
 ---
 
-### 4. Frontend setup
+### 3. Frontend setup
 
 ```bash
 cd Front
@@ -171,7 +164,7 @@ Copy `Back/.env.example` to `Back/.env` and edit as needed:
 
 ```env
 OLLAMA_HOST=http://localhost:11434   # Ollama server address
-OLLAMA_MODEL=gemma3:4b               # Any model available in your Ollama
+OLLAMA_MODEL=gemma4:latest               # Any model available in your Ollama
 FRONTEND_URL=http://localhost:4200   # Allowed CORS origin
 ```
 
@@ -252,7 +245,7 @@ data: [DONE]
 Returns the current status and configured model.
 
 ```json
-{ "status": "ok", "model": "gemma3:4b", "ollama_host": "http://localhost:11434" }
+{ "status": "ok", "model": "gemma4:latest", "ollama_host": "http://localhost:11434" }
 ```
 
 ---
@@ -264,7 +257,7 @@ Returns the current status and configured model.
 | `Error: could not reach Ollama` | Make sure Ollama is running: `ollama serve` |
 | Model not found | Pull it first: `ollama pull gemma3:4b` |
 | CORS error in browser | Ensure `FRONTEND_URL` in `.env` matches the Angular dev server URL |
-| Slow responses | Gemma 3 4B runs on CPU by default; a GPU will be significantly faster |
+| Slow responses | Gemma 4 runs on CPU by default; a GPU will be significantly faster |
 | Port already in use | Change the port in `uvicorn main:app --port <PORT>` and update `apiUrl` in `chat.service.ts` |
 
 ---
