@@ -1,6 +1,6 @@
 # Gemma Chatbot — Local AI Chat with Angular & Python
 
-A full-stack chatbot application powered by Google's **Gemma 3 4B** model running entirely on your machine via [Ollama](https://ollama.com). No API keys, no cloud, no telemetry — 100% private.
+A full-stack chatbot application powered by Google's **Gemma 4** model running entirely on your machine via [Ollama](https://ollama.com). No API keys, no cloud, no telemetry — 100% private.
 
 ![screenshot placeholder](https://placehold.co/860x480/0d0d0d/7c6af5?text=Gemma+Chatbot)
 
@@ -48,10 +48,10 @@ Make sure the following are installed before proceeding:
 Start Ollama and pull the model (≈3 GB download):
 
 ```bash
-ollama pull gemma3:4b
+ollama pull gemma4:latest
 ```
 
-> You can verify it works with: `ollama run gemma3:4b "Hello!"`
+> You can verify it works with: `ollama run gemma4:latest "Hello!"`
 
 ---
 
@@ -255,7 +255,7 @@ Returns the current status and configured model.
 | Problem | Solution |
 |---|---|
 | `Error: could not reach Ollama` | Make sure Ollama is running: `ollama serve` |
-| Model not found | Pull it first: `ollama pull gemma3:4b` |
+| Model not found | Pull it first: `ollama pull gemma4:latest` |
 | CORS error in browser | Ensure `FRONTEND_URL` in `.env` matches the Angular dev server URL |
 | Slow responses | Gemma 4 runs on CPU by default; a GPU will be significantly faster |
 | Port already in use | Change the port in `uvicorn main:app --port <PORT>` and update `apiUrl` in `chat.service.ts` |
